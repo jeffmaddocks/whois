@@ -24,7 +24,7 @@ def runwhois(df):
             data = [str(x[0]), str(arlookup[arfields[1]]), str(arlookup[arfields[2]]), str(arlookup[arfields[3]]), str(arlookup[arfields[4]]), str(arlookup[arfields[5]]), str(arlookup[arfields[6]]), str(arlookup[arfields[7]]), str(arlookup[arfields[8]])]
             df_final.loc[index] = data
         except:
-            print('error row index ' + str(index) + str(IOError))
+            print('error row index ' + str(index) + ': ' + str(IOError))
     return df_final
 
 if __name__ == "__main__":
