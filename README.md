@@ -1,5 +1,5 @@
 # whois
-Uses [TabPy](https://github.com/tableau/TabPy) and [Tableau Prep](https://www.tableau.com/products/prep) to run whois against a list of IP addresses:
+Uses [TabPy](https://github.com/tableau/TabPy) and [Tableau Prep](https://www.tableau.com/products/prep) to run whois against a list of IP addresses. The result includes:
 
 | ip | org | name | domain name | address | city | state | zipcode | country |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
