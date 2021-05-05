@@ -1,15 +1,35 @@
-import whois
 
-f = open('trace.txt','r')
-s = ''
-t = 'addr, name, country \n'
+def get_output_schema():
+    return pd.DataFrame({
+        'ip': prep_string(),
+        'org': prep_string(),
+        'name': prep_string(),
+        'domain_name': prep_string(),
+        'address': prep_string(),
+        'city': prep_string(),
+        'state': prep_string(),
+        'zipcode': prep_string(),
+        'country': prep_string()
+    })
 
-for x in f:
-    addr = x.split()[0] 
-    s = addr + ', ' + str(whois.whois(addr).name) + ', ' + str(whois.whois(addr).country) + '\n'
-    print(s)
-    t = t + s
+def runwhois(df):
+    import whois
+    s = ''
+    t = 'ip, org, name, domain_name, address, city, state, zipcode, country\n'
 
-g = open('data.txt','w')
-g.write(t)
-g.close()
+    arlookup = []
+    # df.iloc[1][0]
+    for index, x in df.iterrows():  
+        arlookup = whois.whois(x[0])
+        s = str(x[0]) + '; ' + str(arlookup['org']) + '; ' + str(arlookup['name']) + '; ' + str(arlookup['domain_name']) + '; ' + str(arlookup['address']) + '; ' + str(arlookup['city']) + '; ' + str(arlookup['state']) + '; ' + str(arlookup['zipcode']) + '; ' + str(arlookup['country']) + '\n'
+        print(s)
+        t = t + s
+    return t
+
+if __name__ == "__main__":
+    import pandas as pd
+    # df = pd.read_csv('twitter_query.csv')
+    df = pd.read_csv('trace.txt', header=None)
+    g = open('data.txt','w')
+    g.write(runwhois(df))
+    g.close()
