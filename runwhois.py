@@ -19,8 +19,6 @@ def runwhois(df):
     arlookup = []
     for index, x in df.iterrows():  
         arlookup = whois.whois(x[0])
-        # s = str(x[0]) + '; ' + str(arlookup['org']) + '; ' + str(arlookup['name']) + '; ' + str(arlookup['domain_name']) + '; ' + str(arlookup['address']) + '; ' + str(arlookup['city']) + '; ' + str(arlookup['state']) + '; ' + str(arlookup['zipcode']) + '; ' + str(arlookup['country']) + '\n'
-        # data = [['ip', str(x[0])], ['org', str(arlookup['org'])], ['name', str(arlookup['name'])], ['domain_name', str(arlookup['domain_name'])], ['address', str(arlookup['address'])], ['city', str(arlookup['city'])], ['state', str(arlookup['state'])], ['zipcode', str(arlookup['zipcode'])], ['country', str(arlookup['country'])]]
         data = [str(x[0]), str(arlookup['org']), str(arlookup['name']), str(arlookup['domain_name']), str(arlookup['address']), str(arlookup['city']), str(arlookup['state']), str(arlookup['zipcode']), str(arlookup['country'])]
         df_final.loc[index] = data
     return df_final
