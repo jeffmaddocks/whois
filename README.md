@@ -36,10 +36,10 @@ Uses [TabPy](https://github.com/tableau/TabPy) and [Tableau Prep](https://www.ta
     ```
 
 7. Open Tableau Prep Builder and ...
-    - add trace.txt as a data source
+    - add trace.txt as a data source, under Settings > Text Options > choose Generate field names automatically
     - add a script step
     - choose Tableau Python (TabPy) Server
-    - press the Connect To Server button
+    - Go to Help > Settings and Performance > Manage Analytics Extension Connection
     - your TabPy service may be running locally, so enter localhost in the Server box
     - set the port to 9004
     - leave all other fields empty and press the Sign In button
