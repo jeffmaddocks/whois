@@ -15,12 +15,16 @@ def get_output_schema():
     })
 
 def runwhois(df):
-    df_final = pd.DataFrame(columns = ['ip', 'org', 'name', 'domain_name', 'address', 'city', 'state', 'zipcode', 'country'])
+    arfields = ['ip', 'org', 'name', 'domain_name', 'address', 'city', 'state', 'zipcode', 'country']
+    df_final = pd.DataFrame(columns = arfields)
     arlookup = []
     for index, x in df.iterrows():  
         arlookup = whois.whois(x[0])
-        data = [str(x[0]), str(arlookup['org']), str(arlookup['name']), str(arlookup['domain_name']), str(arlookup['address']), str(arlookup['city']), str(arlookup['state']), str(arlookup['zipcode']), str(arlookup['country'])]
-        df_final.loc[index] = data
+        try:
+            data = [str(x[0]), str(arlookup[arfields[1]]), str(arlookup[arfields[2]]), str(arlookup[arfields[3]]), str(arlookup[arfields[4]]), str(arlookup[arfields[5]]), str(arlookup[arfields[6]]), str(arlookup[arfields[7]]), str(arlookup[arfields[8]])]
+            df_final.loc[index] = data
+        except:
+            print('error row index ' + str(index) + str(IOError))
     return df_final
 
 if __name__ == "__main__":
