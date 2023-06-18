@@ -7,7 +7,7 @@ Run whois against a list of IP addresses. The result includes:
 | 83.51.96.356 | NETHOST | Bayes Mill | bayesmill.com | 415 Mission St | San Francisco | CA | 94105 | US |
 
 ## Setup
-1. Download or clone this project. If you choose to download, setup a working directory first. Alternatively, the "git clone" command will create a directory with the name 'findChurn' that contains this repository:
+1. Download or clone this project. If you choose to download, setup a working directory first. Alternatively, the "git clone" command will create a directory that contains this repository:
     ```
     git clone https://github.com/jeffmaddocks/whois
     ```
