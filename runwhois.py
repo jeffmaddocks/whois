@@ -11,4 +11,4 @@ def runwhois(df):
 if __name__ == "__main__":
     df = pd.read_csv('trace.txt', header=None)
     df_final = runwhois(df)
-    df_final.to_json('data.json', orient='index', indent=2 )
+    df_final.to_json('data.json', orient='index', indent=5 )
