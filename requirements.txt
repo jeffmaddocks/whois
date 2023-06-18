@@ -1,3 +1,2 @@
 python-whois
 pandas
-tabpy
