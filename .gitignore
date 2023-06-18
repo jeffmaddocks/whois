@@ -1,4 +1,5 @@
 /env
 /.vscode
 data.txt
+data.json
 tabpy_log*.*
